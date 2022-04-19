@@ -1,0 +1,23 @@
+﻿@model Solver
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p></p>
+</div>
+<section>    
+    <form id="form1" method="post">   
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label asp-for="query">Enter a four digit number as indicated in the field, you have maximum five turns</label>
+            <input asp-for="query" class="form-control" placeholder="4256,4567,3456" />
+            <span asp-validation-for="query" class="text-danger"></span>
+        </div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+</form>
+</section>
+
+@section Scripts {    
+    <partial name="_ValidationScriptsPartial" />    
+}

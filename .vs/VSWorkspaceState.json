@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Models",
+    "\\Views\\Home",
+    "\\wwwroot\\js",
+    "\\wwwroot\\lib\\bootstrap",
+    "\\wwwroot\\lib\\bootstrap\\dist",
+    "\\wwwroot\\lib\\bootstrap\\dist\\js"
+  ],
+  "SelectedNode": "\\Models\\Solver.cs",
+  "PreviewInSolutionExplorer": false
+}

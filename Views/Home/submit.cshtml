@@ -1,0 +1,56 @@
+﻿@model Solver
+
+@{
+    var queryarray = Model.query.Split(",").ToList();
+}
+
+@if (@queryarray.Contains(@ViewBag.secretcode))
+{
+        <h4 style="text-align:center;color:aliceblue;letter-spacing:3px;">Congratulations&#127881; your guess is right at </h4>
+        <h4 style="text-align:center;color:aliceblue;letter-spacing:3px;">Turn Number:@(queryarray.IndexOf(@ViewBag.secretcode) + 1)  </h4>
+        <h4 style="text-align:center;color:aliceblue;letter-spacing:3px;">and the query was @queryarray[queryarray.IndexOf(@ViewBag.secretcode)] </h4>
+}
+else
+{
+    <h4 style="text-align:center;color:aliceblue;letter-spacing:3px;">Below is the summary of your input</h4>
+     
+    <table class="center">
+        <tr>
+        <th>Turn Number</th>
+        <th>Query</th>
+        <th>Number of Bulls</th>
+        <th>Number of Cows</th>
+        </tr>
+ @for(int i = 0; i<queryarray.Count; i++)
+{     
+    int bulls = 0;
+    int cows = 0;
+            
+    @for(int j = 0; j<4; j++)
+   {  
+       @if(@queryarray[i].Contains(@ViewBag.secretcode[j].ToString()))
+      {
+            @if (@queryarray[i][j] == @ViewBag.secretcode[j])
+            { 
+
+                bulls++;
+            }
+            else
+            {   
+                cows++;
+            }
+      }
+      }
+
+        <tr>
+        <td>@(i+1)</td>
+        <td>@queryarray[i]</td>
+        <td>@bulls</td>
+        <td>@cows</td>
+        </tr>
+}
+     </table>
+   
+}
+<br />
+<h4 style="text-align:center;color:aliceblue;">To play again click on <strong>CowsandBulls</strong> on <em>Title Bar</em> </h4>
